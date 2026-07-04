@@ -184,7 +184,7 @@ html{
     height:420px;
     border-radius:50%;
     overflow:hidden;
-    cursor:pointer;
+   
 
     box-shadow:
     0 0 15px #00eeff,
@@ -210,24 +210,57 @@ html{
                filter .5s ease;
 }
 
-.neon-circle:hover{
-    transform:translateY(-8px);
+@media (hover: hover) and (pointer: fine) {
+
+    .neon-circle:hover {
+        transform: translateY(-8px);
+
+        box-shadow:
+        0 0 25px #00eeff,
+        0 0 60px #00eeff,
+        0 0 100px #00eeff;
+    }
+
+    .neon-circle:hover img {
+        transform: scale(1.04);
+        filter: brightness(1) contrast(1.1);
+    }
+
+}
+
+
+.neon-circle.active {
+    transform: translateY(-8px);
 
     box-shadow:
-    0 0 25px #00eeff,
-    0 0 60px #00eeff,
-    0 0 100px #00eeff;
+        0 0 25px #00eeff,
+        0 0 60px #00eeff,
+        0 0 100px #00eeff;
 }
 
-.neon-circle:hover img{
-    transform:scale(1.04);
+.neon-circle.active img {
+    transform: scale(1.04);
     filter: brightness(1) contrast(1.1);
 }
-.neon-circle{
-    cursor: pointer;
+
+
+
+.neon-circle,
+.neon-circle img {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 
-
+.neon-circle:focus,
+.neon-circle img:focus,
+.neon-circle:active,
+.neon-circle img:active {
+    outline: none;
+    box-shadow: none;
+}
 
 .btn-box {
     display: inline-block;
@@ -257,27 +290,58 @@ html{
     padding:50px 10%;
 }
 
+.about-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .about-img img{
-    width: 100%;
-    max-width: 380px;     /* 450 se chhota */
+    width: 380px;
+    height: 380px;
 
-    height: auto;
-    display: block;
-
-    border-radius: 20px;  /* agar PNG transparent hai aur square shape hai */
     object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
 
     filter: brightness(.96)
             drop-shadow(0 0 18px rgba(0,238,255,.45));
 
     transition: all .5s ease;
 }
-.about-img img:hover{
+@media (hover: hover) and (pointer: fine) {
+
+    .about-img img:hover {
+        transform: translateY(-10px) scale(1.05);
+
+        filter: brightness(1)
+                drop-shadow(0 0 40px #00eeff)
+                drop-shadow(0 0 80px rgba(0,238,255,.5));
+    }
+
+}
+
+/* Mobile Tap Animation */
+.about-img img.active {
     transform: translateY(-10px) scale(1.05);
 
     filter: brightness(1)
             drop-shadow(0 0 40px #00eeff)
             drop-shadow(0 0 80px rgba(0,238,255,.5));
+}
+
+/* Remove tap highlight */
+.about-img img {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-touch-callout: none;
+    outline: none;
+}
+
+.about-img img:focus,
+.about-img img:active {
+    outline: none;
 }
 .about-text h2{
     font-size: 60px;
@@ -1056,10 +1120,15 @@ html{
     object-fit:cover;
 }
 .about-img img{
-    width:280px;
-    margin:auto;
-}
+    width: 280px;
+    height: 280px;
 
+    margin: auto;
+
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
 .about-text h2{
     font-size:40px;
 }

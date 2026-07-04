@@ -141,9 +141,24 @@ navLinks.forEach(link => {
 
 
 
+// ===== Mobile Image Tap Animation =====
 
+const neonCircle = document.querySelector(".neon-circle");
 
+if (neonCircle) {
+    neonCircle.addEventListener("click", () => {
+        neonCircle.classList.toggle("active");
+    });
+}
 
+// ===== About Image Tap Animation =====
+const aboutImg = document.querySelector(".about-img img");
+
+if (aboutImg) {
+    aboutImg.addEventListener("click", function () {
+        this.classList.toggle("active");
+    });
+}
 
 
 
